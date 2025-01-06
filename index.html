@@ -27,9 +27,9 @@
                 extend: {
                     colors: {
                         clifford: '#da373d',
-                        hColor:'#13131399',
-                        pColor:'#131313',
-                        buColor:'#0E7A81',
+                        hColor: '#131313',
+                        pColor: '#13131399',
+                        buColor: '#0E7A81',
                     },
                     fontFamily: {
                         "lato-font": '"Lato", "serif"',
@@ -41,12 +41,49 @@
 
 </head>
 
-<body class="font-lato-font" >
+<body class="font-lato-font md:max-w-screen-xl mx-auto border">
     <!-- header start -->
     <header>
-        <!-- nav bar -->
+        <!-- nav ba -->
+        <!--  -->
         <nav>
+            <div class=" navbar bg-base-100 border ">
+                <div class="navbar-start gap-14">
+                    <div class="dropdown md:hidden">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h7" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li><a>Homepage</a></li>
+                            <li><a>Portfolio</a></li>
+                            <li><a>About</a></li>
+                        </ul>
+                    </div>
+                    <!-- logo -->
+                    <div class="flex items-center justify-center gap-3 ">
+                        <img src="./images/logo.webp" alt="">
+                        <h2 class="text-hColor text-3xl font-black">Peddy</h2>
+                    </div>
+                </div>
+                <div class="navbar-center gap-8 hidden md:flex ">
+                    <button class="text-base font-normal text-pColor">Home</button>
+                    <button class="text-base font-normal text-pColor">Shop</button>
+                    <button class="text-base font-normal text-pColor">Contact</button>
+                </div>
+                <!-- profile icon -->
+                <div class="navbar-end">
+                    <div
+                        class="md:w-14 md:h-14 w-11 h-11 rounded-full border border-[#0e7a8133] flex  justify-center items-center text-3xl">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                </div>
 
+            </div>
         </nav>
     </header>
     <!-- header end -->
