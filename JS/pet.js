@@ -52,19 +52,39 @@ const displayAllPost = (arrays) => {
     const postContainer = document.getElementById("display-all-post");
     arrays.forEach(array => {
         const allPostDiv = document.createElement("div");
-        allPostDiv.classList = "card card-compact";
+        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl p-5";
         allPostDiv.innerHTML = `
-          <figure>
+          <figure class = "rounded-xl">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+      src="${array.image}"
       alt="Shoes" />
   </figure>
-  <div class="card-body">
-    <h2 class="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
+    <div>
+        <div class= "mt-5 ">
+            <h2 class="text-xl text-hColor font-bold">${array.pet_name}</h2>
+            <p><i class="fa-solid fa-diamond pr-1"></i> Breed: ${array.breed ? array.breed : "N/A"}</p>
+            <p><i class="fa-regular fa-calendar-days pr-1"></i> Birth: ${array.date_of_birth ? array.date_of_birth : "N/A"}</p>
+            <p><i class="fa-solid fa-venus pr-1"></i> Gender: ${array.gender ? array.gender : "N/A"}</p>
+            <p><i class="fa-solid fa-bangladeshi-taka-sign pr-1"></i> Price: ${array.price ? array.price : "N/A"}</p>
+            
+        </div>
+
+        <div class = "border-b my-3"></div>
+
+        <div class="flex items-center justify-between">
+            <button
+             class = "border border-[#0E7A8126] rounded-lg px-4 py-2 ">
+             👍</button>
+             
+            <button
+             class = "border border-[#0E7A8126] rounded-lg px-4 py-2 text-lg font-bold text-buColor">
+             Adopt</button>
+
+            <button 
+            class = "border border-[#0E7A8126] rounded-lg px-4 py-2 text-lg font-bold text-buColor">
+            Details</button>
+        </div>
+
   </div>`;
         postContainer.append(allPostDiv);
     })
