@@ -41,13 +41,13 @@
 
 </head>
 
-<body class="font-lato-font md:max-w-screen-xl mx-auto border">
+<body class="font-lato-font md:max-w-screen-xl mx-auto  ">
     <!-- header start -->
     <header>
         <!-- nav ba -->
         <!--  -->
-        <nav>
-            <div class=" navbar bg-base-100 border ">
+        <nav class=" md:mt-2 mt-1 md:mb-8 mb-2">
+            <div class=" navbar bg-base-100 ">
                 <div class="navbar-start gap-14">
                     <div class="dropdown md:hidden">
                         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -88,7 +88,68 @@
     </header>
     <!-- header end -->
 
+    <!-- main start here -->
+
+    <main class="p-3 md:p-0">
+
+        <!-- your path to Adoption section-->
+        <section>
+            <div class="flex flex-col justify-center items-center  space-y-4 md:space-y-6 ">
+                <p class="text-pColor text-xl lg:text-2xl font-bold ">Bringing Families Together ❤️‍🔥</p>
+                <h2 class="text-hColor text-2xl lg:text-7xl font-black text-center">Your Path to Adoption<br>Starts Here
+                </h2>
+                <p class="text-pColor text-base font-normal text-center md:w-[752px] md:h-[52px]">It is a long
+                    established fact that a reader will be distracted by the readable content of a page when looking at
+                    its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <button class="px-8 py-4 bg-buColor rounded-xl text-white text-xl font-bold">View More</button>
+            </div>
+        </section>
+
+        <!-- img section -->
+        <section class="mb-1 md:mb-24 mt-8 md:mt-10">
+            <div class="flex justify-center md:w-[802.28px] md:h-[450px] mx-auto">
+                <img class="w-full h-full text-center" src="/images/pet.webp" alt="">
+            </div>
+        </section>
+
+        <!-- adopt your best friend section -->
+        <section class="md:mb-12 mb-6">
+            <div class="flex flex-col justify-center items-center space-y-2 md:space-y-6">
+                <h2 class="text-2xl md:text-4xl text-hColor font-black">Adopt Your Best Friend</h2>
+                <p class="text-base text-pColor font-normal md:w-[636px] md:h-[52px] text-center">It is a long
+                    established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+        </section>
+
+        <!--fetch button section -->
+        <section id="display-categories-button" class="md:flex  justify-center items-center gap-6 mb-20 space-y-3">
+
+        </section>
+
+        <!-- best deal section -->
+        <section class="space-y-11">
+            <div class="flex justify-between items-center mb-11">
+                <h2 class="text-2xl text-hColor font-black">Best Deal For you</h2>
+                <button class="px-8 py-4 bg-buColor rounded-xl text-white text-xl font-bold">Sort by Price</button>
+            </div>
+            <!-- all post append here -->
+             <div class="flex justify-between items-center gap-6">
+                <div id="display-all-post" class="lg:grid md:grid lg:grid-cols-3 md:grid-cols-2 gap-6 border w-full  rounded-xl">
+                    
+                </div>
+                <div class="border w-1/4 h-60 rounded-xl">
+                    
+                </div>
+             </div>
+        </section>
+    </main>
+
+    <!-- main end here -->
+
     <script src="/JS/pet.js"></script>
 </body>
+<!-- test purpose -->
+
 
 </html>
