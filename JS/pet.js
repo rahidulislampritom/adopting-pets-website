@@ -52,10 +52,10 @@ const displayAllPost = (arrays) => {
     const postContainer = document.getElementById("display-all-post");
     arrays.forEach(array => {
         const allPostDiv = document.createElement("div");
-        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl p-5";
+        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl p-5 border";
         allPostDiv.innerHTML = `
-          <figure class = "rounded-xl">
-    <img
+          <figure class = "rounded-xl w-[272px] h-[160px]">
+    <img class = "w-full h-full"
       src="${array.image}"
       alt="Shoes" />
   </figure>
@@ -75,7 +75,7 @@ const displayAllPost = (arrays) => {
             <button
              class = "border border-[#0E7A8126] rounded-lg px-4 py-2 ">
              👍</button>
-             
+
             <button
              class = "border border-[#0E7A8126] rounded-lg px-4 py-2 text-lg font-bold text-buColor">
              Adopt</button>
