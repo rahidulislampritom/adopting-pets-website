@@ -13,26 +13,44 @@ const loadAllPost = async () => {
 
 const loadCategoriesPost = async(category_name) => {
     const response = await fetch (`https://openapi.programming-hero.com/api/peddy/category/${category_name}`);
-    const data = await response.json()
+    const data = await response.json();
+    removeAndAddClass()
+    const activeButton = document.getElementById(`btn-${category_name}`);
+    activeButton.classList.add("button")
+    activeButton.classList.remove("border")
+    activeButton.classList.remove("rounded-2xl")
+
+    
     displayAllPost(data.data);
 }
+
+// a function for remove and add button class 
+const removeAndAddClass = () =>{
+    const buttons = document.getElementsByClassName("category-btn");
+      for(const button of buttons){
+          button.classList.remove("button");
+          button.classList.add("border");
+          button.classList.add("rounded-2xl"); 
+  
+      }
+     
+  }
 
 // display the fetching data
 const displayCategoriesButton = (arrays) => {
     const displayButton = document.getElementById("display-categories-button");
     arrays.forEach((array) => {
         const buttonDiv = document.createElement("div");
-        buttonDiv.classList = "md:w-[312px] md:h-[104px] border border-[#0E7A811A] rounded-2xl";
+        buttonDiv.classList = "md:w-[312px] md:h-[104px]";
         buttonDiv.innerHTML = `
-        <button onclick = "loadCategoriesPost('${array.category}')" class="text-2xl text-hColor font-bold w-full h-full p-6  ">  
+        <button id = "btn-${array.category}" onclick = "loadCategoriesPost('${array.category}')" class="category-btn text-2xl text-hColor font-bold w-full h-full p-6 border border-[#0E7A811A] rounded-2xl">  
         
-     
-        <a href="#scroll">
+       
          <div class = "flex justify-center items-center gap-4">
             <img src="${array.category_icon}" alt="">
             <span>${array.category}</span>   
         </div>
-        </a>
+        
 
         </button>
     `;
@@ -78,7 +96,7 @@ const displayAllPost = (arrays) => {
     }
     arrays.forEach(array => {
         const allPostDiv = document.createElement("div");
-        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl  border p-4";
+        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl  p-4 border";
         allPostDiv.innerHTML = `
           <figure class = "rounded-xl ">
     <img class = "w-full h-full"
@@ -118,9 +136,6 @@ const displayAllPost = (arrays) => {
 }
 
 
-const displayCategories = (id) =>{
-
-}
 
 
 loadCategoriesButton()
