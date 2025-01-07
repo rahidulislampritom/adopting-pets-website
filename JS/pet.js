@@ -1,3 +1,4 @@
+// fetch data from api
 const loadCategoriesButton = async () => {
     const response = await fetch("https://openapi.programming-hero.com/api/peddy/categories");
     const data = await response.json();
@@ -10,20 +11,28 @@ const loadAllPost = async () => {
     displayAllPost(data.pets);
 }
 
+const loadCategoriesPost = async(category_name) => {
+    const response = await fetch (`https://openapi.programming-hero.com/api/peddy/category/${category_name}`);
+    const data = await response.json()
+    displayAllPost(data.data);
+}
+
+// display the fetching data
 const displayCategoriesButton = (arrays) => {
-    // console.log(array);
     const displayButton = document.getElementById("display-categories-button");
     arrays.forEach((array) => {
-        // console.log(array)
         const buttonDiv = document.createElement("div");
         buttonDiv.classList = "md:w-[312px] md:h-[104px] border border-[#0E7A811A] rounded-2xl";
         buttonDiv.innerHTML = `
-        <button class="text-2xl text-hColor font-bold w-full h-full p-6  ">  
+        <button onclick = "loadCategoriesPost('${array.category}')" class="text-2xl text-hColor font-bold w-full h-full p-6  ">  
         
-        <div class = "flex justify-center items-center gap-4">
+     
+        <a href="#scroll">
+         <div class = "flex justify-center items-center gap-4">
             <img src="${array.category_icon}" alt="">
             <span>${array.category}</span>   
-        </div>   
+        </div>
+        </a>
 
         </button>
     `;
@@ -50,6 +59,23 @@ const displayCategoriesButton = (arrays) => {
 
 const displayAllPost = (arrays) => {
     const postContainer = document.getElementById("display-all-post");
+    postContainer.innerHTML = "";
+    if(arrays.length===0){
+        postContainer.classList.remove("lg:grid");
+        postContainer.classList.remove("md:grid");
+        postContainer.innerHTML = `
+        <div class="flex flex-col justify-center  items-center text-center md:w-[985px] md:h-[491px] space-y-2 md:space-y-4">
+            <img src="./images/error.webp" alt="">
+             <h2 class="text-2xl md:text-3xl text-hColor font-bold">No Information Available</h2>
+            <p class="text-base text-pColor font-normal md:w-[760px]" text-center>It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+                its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+        `
+    }else{
+        postContainer.classList.add("lg:grid");
+        postContainer.classList.add("md:grid");
+
+    }
     arrays.forEach(array => {
         const allPostDiv = document.createElement("div");
         allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl  border p-4";
@@ -88,6 +114,11 @@ const displayAllPost = (arrays) => {
   </div>`;
         postContainer.append(allPostDiv);
     })
+
+}
+
+
+const displayCategories = (id) =>{
 
 }
 
