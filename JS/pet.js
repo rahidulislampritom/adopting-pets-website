@@ -11,30 +11,34 @@ const loadAllPost = async () => {
     displayAllPost(data.pets);
 }
 
-const loadCategoriesPost = async(category_name) => {
-    const response = await fetch (`https://openapi.programming-hero.com/api/peddy/category/${category_name}`);
+const loadCategoriesPost = async (category_name) => {
+    const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category_name}`);
     const data = await response.json();
     removeAndAddClass()
     const activeButton = document.getElementById(`btn-${category_name}`);
     activeButton.classList.add("button")
     activeButton.classList.remove("border")
     activeButton.classList.remove("rounded-2xl")
-
+    const spinnerId = document.getElementById("spinner")
+    spinnerId.classList.remove("hidden")
+    setTimeout(() => {
+        displayAllPost(data.data);
+        spinnerId.classList.add("hidden")
+    },2000)
     
-    displayAllPost(data.data);
 }
 
 // a function for remove and add button class 
-const removeAndAddClass = () =>{
+const removeAndAddClass = () => {
     const buttons = document.getElementsByClassName("category-btn");
-      for(const button of buttons){
-          button.classList.remove("button");
-          button.classList.add("border");
-          button.classList.add("rounded-2xl"); 
-  
-      }
-     
-  }
+    for (const button of buttons) {
+        button.classList.remove("button");
+        button.classList.add("border");
+        button.classList.add("rounded-2xl");
+
+    }
+
+}
 
 // display the fetching data
 const displayCategoriesButton = (arrays) => {
@@ -78,7 +82,7 @@ const displayCategoriesButton = (arrays) => {
 const displayAllPost = (arrays) => {
     const postContainer = document.getElementById("display-all-post");
     postContainer.innerHTML = "";
-    if(arrays.length===0){
+    if (arrays.length === 0) {
         postContainer.classList.remove("lg:grid");
         postContainer.classList.remove("md:grid");
         postContainer.innerHTML = `
@@ -89,7 +93,7 @@ const displayAllPost = (arrays) => {
                 its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
         `
-    }else{
+    } else {
         postContainer.classList.add("lg:grid");
         postContainer.classList.add("md:grid");
 
