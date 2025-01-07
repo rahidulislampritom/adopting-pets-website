@@ -24,8 +24,8 @@ const loadCategoriesPost = async (category_name) => {
     setTimeout(() => {
         displayAllPost(data.data);
         spinnerId.classList.add("hidden")
-    },2000)
-    
+    }, 2000)
+
 }
 
 // a function for remove and add button class 
@@ -48,13 +48,13 @@ const displayCategoriesButton = (arrays) => {
         buttonDiv.classList = "md:w-[312px] md:h-[104px]";
         buttonDiv.innerHTML = `
         <button id = "btn-${array.category}" onclick = "loadCategoriesPost('${array.category}')" class="category-btn text-2xl text-hColor font-bold w-full h-full p-6 border border-[#0E7A811A] rounded-2xl">  
-        
-       
-         <div class = "flex justify-center items-center gap-4">
-            <img src="${array.category_icon}" alt="">
-            <span>${array.category}</span>   
-        </div>
-        
+
+        <a href="#scroll">
+             <div class = "flex justify-center items-center gap-4">
+                <img src="${array.category_icon}" alt="">
+                <span>${array.category}</span>   
+             </div>
+        </a>
 
         </button>
     `;
