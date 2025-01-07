@@ -52,9 +52,9 @@ const displayAllPost = (arrays) => {
     const postContainer = document.getElementById("display-all-post");
     arrays.forEach(array => {
         const allPostDiv = document.createElement("div");
-        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl p-5 border";
+        allPostDiv.classList = "card card-compact  bg-base-100  shadow-xl  border p-4";
         allPostDiv.innerHTML = `
-          <figure class = "rounded-xl w-[272px] h-[160px]">
+          <figure class = "rounded-xl ">
     <img class = "w-full h-full"
       src="${array.image}"
       alt="Shoes" />
